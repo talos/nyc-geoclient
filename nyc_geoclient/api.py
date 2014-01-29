@@ -9,11 +9,31 @@ import requests
 from urllib import urlencode
 
 class Geoclient(object):
+    """
+    This object's methods provide access to the NYC Geoclient REST API.
+
+    You must have registered an app with the NYC Developer Portal
+    (http://developer.cityofnewyork.us/api/geoclient-api-beta), and make sure
+    that you check off access to the Geoclient API for the application.  Take
+    note of the Application's ID and key.  You will not be able to use the ID
+    and key until DoITT approves you -- this could take several days, and you
+    will receive an email when this happens.  There isn't any indication of
+    your status on the dashboard, but all requests will return a 403 until you
+    are approved.
+
+    All methods return a dict, whether or not the geocoding succeeded.  If it
+    failed, the dict will have a `message` key with information on why it
+    failed.
+
+    :param app_id:
+        Your NYC Geoclient application ID.
+    :param app_key:
+        Your NYC Geoclient application key.
+    """
 
     BASE_URL = u'https://api.cityofnewyork.us/geoclient/v1/'
 
     def __init__(self, app_id, app_key):
-
         if not app_id:
             raise Exception("Missing app_id")
 
@@ -50,7 +70,7 @@ class Geoclient(object):
             'Manhattan', 'Queens', or 'Staten Island' (case-insensitive).
 
         :returns: A dict with blockface-level, property-level, and political
-        information.
+            information.
         """
         return self._request(u'address', houseNumber=houseNumber, street=street,
                              borough=borough)
@@ -141,6 +161,8 @@ class Geoclient(object):
         :param compassDirection:
             (optional) Optional. for most requests. Required for streets that
             intersect more than once. Valid values are: N, S, E or W.
+
+        :returns: A dict with intersection-level information.
         """
         return self._request(u'intersection', crossStreetOne=crossStreetOne,
                              crossStreetTwo=crossStreetTwo,
@@ -157,5 +179,7 @@ class Geoclient(object):
         :param borough:
             Must be 'Bronx', 'Brooklyn', 'Manhattan', 'Queens', or 'Staten
             Island' (case-insensitive).
+
+        :returns: A dict with place-level information.
         """
         return self._request(u'place', name=name, borough=borough)
