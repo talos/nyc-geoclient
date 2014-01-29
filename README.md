@@ -18,6 +18,8 @@ indication of your status on the dashboard, but all requests will return a 403.
 
 You can `pip install` nyc-geoclient.  It depends upon the [requests][] library.
 
+  [requests]: http://docs.python-requests.org/en/latest/index.html
+
     $ pip install nyc_geoclient
 
 Once your app has been approved by DoITT, using the API is simple:
@@ -90,7 +92,7 @@ The messages are generally very helpful.
 Take a look at the [Python documentation][] for details on using the bindings,
 which closely follows the [DoITT documentation][] (requires account/login).
 
-  [Python documentation]: http://nyc-geoclient.readthedocs.org/
+  [Python documentation]: https://nyc-geoclient.readthedocs.org/
   [DoITT documentation]: http://developer.cityofnewyork.us/api/geoclient-api-beta
 
 ### License

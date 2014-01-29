@@ -19,7 +19,15 @@ geocoding fails.
 
 These Python bindings make it easier to make requests to the API.
 
-Contents:
+Installation
+============
+
+See the Readme_ on GitHub for information on installation.
+
+.. _Readme: https://github.com/talos/nyc-geoclient
+
+Contents
+========
 
 .. toctree::
    :maxdepth: 2

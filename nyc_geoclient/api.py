@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-jsongit.api
+nyc_geoclient.api
 """
 
 import requests
