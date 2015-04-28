@@ -75,6 +75,23 @@ class Geoclient(object):
         return self._request(u'address', houseNumber=houseNumber, street=street,
                              borough=borough)
 
+    def addressZip(self, houseNumber, street, zip):
+        """
+        Like the above address function, except it uses "zip code" instead of borough
+
+        :param houseNumber:
+            The house number to look up.
+        :param street:
+            The name of the street to look up
+        :param zip:
+            The zip code of the address to look up.
+
+        :returns: A dict with blockface-level, property-level, and political
+            information.
+
+        """
+        return self._request(u'address', houseNumber=houseNumber, street=street, zip=zip)
+
     def bbl(self, borough, block, lot):
         """
         Given a valid borough, block, and lot provides property-level
