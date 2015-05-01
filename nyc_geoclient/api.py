@@ -75,7 +75,7 @@ class Geoclient(object):
         return self._request(u'address', houseNumber=houseNumber, street=street,
                              borough=borough)
 
-    def addressZip(self, houseNumber, street, zip):
+    def address_zip(self, houseNumber, street, zip):
         """
         Like the above address function, except it uses "zip code" instead of borough
 
